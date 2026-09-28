@@ -104,7 +104,7 @@ class BiliNovelSource implements LightNovelSource {
     String actualUrl = "$domain/novel/$id.html";
     String html = (await _dio.get(actualUrl)).toString();
     try {
-      return _parseNovel(url, id, parse(html));
+      return _parseNovel(actualUrl, id, parse(html));
     } catch (e) {
       logger.e(e);
       logger.i(html);
